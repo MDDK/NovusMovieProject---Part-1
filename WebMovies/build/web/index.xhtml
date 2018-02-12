@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Movie DB</title>
+    </h:head>
+    <h:body>
+        <h:outputStylesheet name="style.css"  />
+        <h1>Movie DB</h1>
+        <h:form id="form">
+                
+                
+                <p>Film:<h:selectOneMenu style="width:230px;" value="#{bean.selectedFilm}" 
+                              onchange="submit()" valueChangeListener="#{bean.filmValueChanged}">
+                    <f:selectItems value="#{bean.films}" />                    
+
+                </h:selectOneMenu>
+                
+                <h:commandButton value="Reset" class="button" action="#{bean.reset}" />
+       <!--disabled ="true"-->
+                </p>
+       <!--rendered="bean.isAllSelected"-->
+        </h:form> 
+        
+        <!--bean.isSubmitted-->
+        <h:dataTable rendered="#{bean.isAllSelected}" class="tftable" value="Film" var="item" border="1">
+            <f:facet name="header">Selected Film</f:facet>
+            <h:column>
+              <f:facet name="header">Film ID</f:facet>
+              #{bean.film.filmID}
+            </h:column>
+            <h:column>
+              <f:facet name="header">Film Name</f:facet>
+                <h:outputLink value="#{bean.filmImdbLink}"><h:outputText value="#{bean.film.filmName}" /></h:outputLink>
+            </h:column>
+            <h:column>
+              <f:facet name="header">Film Year</f:facet>
+              #{bean.film.filmYear}
+            </h:column>
+            <h:column>
+              <f:facet name="header">Imdb Rating</f:facet>
+              #{bean.film.filmRating}
+            </h:column>
+            <h:column>
+              <f:facet name="header">Director ID</f:facet>
+              #{bean.director.ID}
+            </h:column>
+            <h:column>
+              <f:facet name="header">Director Name</f:facet>
+                <h:outputLink value="#{bean.directorImdbLink}"><h:outputText value="#{bean.director.name}" /></h:outputLink>
+            </h:column>
+            <h:column>
+              <f:facet name="header">Actor ID</f:facet>
+              #{bean.actor.ID}
+            </h:column>
+            <h:column>
+              <f:facet name="header">Actor Name</f:facet>
+                <h:outputLink value="#{bean.actorImdbLink}"><h:outputText value="#{bean.actor.name}" /></h:outputLink>
+            </h:column>
+        </h:dataTable>
+    </h:body>
+</html>
+

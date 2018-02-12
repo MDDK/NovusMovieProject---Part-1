@@ -1,0 +1,32 @@
+Film ID, Film Name, 						IMDB Rating, 	Director ID, 	Director, 			Actor ID, Actor, Year
+0145487, Spider-Man, 						 7.3, 			0000600, 		Sam Raimi, 			0001497, Tobey Maguire, 2002
+2975590, Batman v Superman: Dawn of Justice, 6.7, 			0811583, 		Zack Snyder, 		0147147, Henry Cavill, 2016
+2975590, Batman v Superman: Dawn of Justice, 6.7, 			0811583, 		Zack Snyder, 		0000255, Ben Affleck, 2016
+0287978, Daredevil,							 5.3, 			0425756, 		Mark Steven Johnson,0000255, Ben Affleck, 2003
+3385516, X-Men Apocalypse, 					 7.1,			0001741, 		Bryan Singer,		0564215, James McAvoy, 2016
+0468569, Batman: The Dark Knight, 			 9.0, 			0634240,		Christopher Nolan,	0000288,Christian Bale,2008
+1345836, Batman: The Dark Knight Rises,		 8.5,			0634240,		Christopher Nolan,	0000288,Christian Bale,2012
+0770828, Man Of Steel, 						 7.1,			0811583, 		Zack Snyder,		0147147, Henry Cavill,	2013
+1877832, X-Men: Days of Future Past, 		 8.0, 			0001741,		Bryan Singer,		0001772,Patrick Stewert, 2014
+1270798, X-Men: First Class, 				 7.8, 			0891216,		Matthew Vaughn,		0564215,James McAvoy, 2011
+1431045, Deadpool, 							 8.1, 			1783265,		Tim Miller,			0005351,Ryan Reynolds, 2016
+1386697, Suicide Squad, 					 6.3, 			0043742,		David Ayer,			0000226,Will Smith, 2016
+0372784, Batman Begins,						 8.3, 			0634240,		Christopher Nolan,	0000288,Christian Bale,2005
+0848228, Avengers Assemble,					 8.1, 			0923736,		Joss Whedon,		0000375,Robert Downey Jr.,	2012
+2395427, Avengers: Age of Ultron, 			 7.4, 			0923736,		Joss Whedon,		0000375,Robert Downey Jr., 2015
+0458339, Captain America: The First Avenger, 6.9, 			0002653,		Joe Johnston,		0262635,Chris Evans, 2011
+1843866, Captain America: The Winter Soilder,7.8, 			0751577,		Anthony Russo,		0262635,Chris Evans, 2014
+3498820, Captain America: Civil War, 		 7.9, 			0751577,		Anthony Russo,		0262635,Chris Evans, 2016
+0948470, The Amazing Spider-Man, 			 7.0,			1989536,		Marc Webb,			1940449,Andrew Garfield,	2012
+0371746, Iron Man,							 7.9,			0269463,		Jon Favreau,		0000375,Robert Downey Jr.,2008
+1228705, Iron Man 2,						 7.0,			0269463,		Jon Favreau,		0000375,Robert Downey Jr.,2010
+1300854, Iron Man 3,						 7.2,			0000948,		Shane Black,		0000375,Robert Downey Jr.,2013
+2015381, Guardians Of The Galaxy,			 8.1,			0348181,		James Gunn,			0695435,Chris Pratt,2014
+0376994, X-Men: The Last Stand,				 6.7,			0711840,		Brett Ratner,		0001772,Patrick Stewert,2006
+1981115, Thor: The Dark World,				 7.1,			0851930,		Alan Taylor,		1165110,Chris Hemsworth,2013
+0800369, Thor,								 7.0,			0000110,		Kenneth Branagh,	1165110,Chris Hemsworth,2011
+1133985, The Green Lantern,					 5.6,			0132709,		Martin Campball,	0005351,Ryan Reynolds,2011
+1872181, The Amazing Spider-Man 2, 			 6.7,			1989536,		Marc Webb,			1940449,Andrew Garfield,2014
+1291150, Teenage Mutant Ninja Turtles,		 5.9,			0509448,		Jonathan Liebesman,	1083271,Megan Fox,	2014
+1502712, Fantastic Four,					 4.3,			2503633,		Josh Trank,			1886602,Miles Teller,2015
+0478970, Ant-Man,							 7.3,			0715636,		Peyton Reed,		0748620,Paul Rudd,2015
