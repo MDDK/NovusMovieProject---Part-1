@@ -42,7 +42,7 @@ public class Beans extends BaseBean implements Serializable{
         }
     }
     
-    // populate dropdown lists with ALL data retrieved ttt
+    // populate dropdown lists with ALL data retrieved
     private void populateDropDownsWithOriginalData(){
         try{
             Films films = mbl.getFilms();
