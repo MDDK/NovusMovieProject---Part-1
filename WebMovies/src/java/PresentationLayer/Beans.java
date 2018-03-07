@@ -28,16 +28,17 @@ public class Beans extends BaseBean implements Serializable{
     private boolean isSubmitted = false, isAllSelected = false;
     
     @PostConstruct
+    //Populate drop down menu
     protected void load(){
-        if (this.isPostback()){
-            String filmID = (selectedFilm == null ? null : selectedFilm);
-            String directorID = (selectedDirector == null ? null : selectedDirector);
-            String actorID = (selectedActor == null ? null : selectedActor);
-            String filmYear = (selectedYear == null ? null : selectedYear);
-            String filmRating = (selectedRating == null ? null : selectedRating);
+        if (this.isPostback()){ // Is the page getting generated due to a postback caused by a user's action?
+            String filmID = (selectedFilm == null ? null : selectedFilm); //set filmID to selectedFilm
+            String directorID = (selectedDirector == null ? null : selectedDirector); //set directorID to selectedDirector
+            String actorID = (selectedActor == null ? null : selectedActor); //set actorID to selectedActor
+            String filmYear = (selectedYear == null ? null : selectedYear); //set filmYear to selectedYear
+            String filmRating = (selectedRating == null ? null : selectedRating); //set filmRating to selectedRating
 
-            populateDropDownsWithFilteredData(filmID, directorID, actorID, filmYear, filmRating);
-        }else{
+            populateDropDownsWithFilteredData(filmID, directorID, actorID, filmYear, filmRating); //Populate table based on selected values
+        }else{ //Is the page being generated NOT due to postback, eg. for the first time
             populateDropDownsWithOriginalData();
         }
     }
@@ -45,7 +46,7 @@ public class Beans extends BaseBean implements Serializable{
     //populate  dropdown lists with ALL data retrieved 
     private void populateDropDownsWithOriginalData(){
         try{
-            Films films = mbl.getFilms();
+            Films films = mbl.getFilms(); //Get all films through movie business layer
             
             directors = mbl.getDistinctDirectorsFromFilms(films);
             actors = mbl.getDistinctActorsFromFilms(films);

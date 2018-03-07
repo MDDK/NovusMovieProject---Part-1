@@ -11,6 +11,7 @@ public class SimplisticFilm{
     }
     
     
+    //Checks if there is a non-empty filmID and filmName
     public boolean isValid(){
         if(this.filmID == null || this.filmID.isEmpty()){
             return false;

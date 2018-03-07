@@ -14,26 +14,28 @@ public class Films extends ArrayList<Film>{
         this.addAll(films);
     }
     
-    
+    //Return only those films which match criteria
     public Films getFilmsFilteredSubset(String filmID, String directorID, String actorID, String filmYear, String filmRating){
         Films tmpFilms = new Films();
-        tmpFilms.addAll(this.stream().filter(f -> f.filmID.equals((filmID == null) ? f.filmID : filmID)) 
-                                     .filter(f -> f.filmYear.equals((filmYear == null) ? f.filmYear : filmYear))
-                                     .filter(f -> f.imdbRating.equals((filmRating == null) ? f.imdbRating : filmRating))
-                                     .filter(f -> f.directors.stream().anyMatch(p -> p.getID().equals((directorID == null) ? p.getID() : directorID)))
-                                     .filter(f -> f.actors.stream().anyMatch(p -> p.getID().equals((actorID == null) ? p.getID() : actorID)))
-                                     .sorted(Comparator.comparing(f -> f.getFilmName()))
-                                     .collect(Collectors.toList()));
-        return tmpFilms;
+        tmpFilms.addAll(this.stream().filter(f -> f.filmID.equals((filmID == null) ? f.filmID : filmID)) //If there is a filmID filter value, allow only films with filmID value equal to it
+                                     .filter(f -> f.filmYear.equals((filmYear == null) ? f.filmYear : filmYear)) //As above, filter by filmYear
+                                     .filter(f -> f.imdbRating.equals((filmRating == null) ? f.imdbRating : filmRating)) //As above filter by filmRating
+                                     .filter(f -> f.directors.stream().anyMatch(p -> p.getID().equals((directorID == null) ? p.getID() : directorID))) //Pass filter if any director ID matches
+                                     .filter(f -> f.actors.stream().anyMatch(p -> p.getID().equals((actorID == null) ? p.getID() : actorID))) //Pass filter if any actor ID matches
+                                     .sorted(Comparator.comparing(f -> f.getFilmName())) // Use comparator to sort by film name
+                                     .collect(Collectors.toList())); //Convert stream to list
+        return tmpFilms; //return the filtered and sorted list
     }
     
     
+    //Converts self(Films) into a sorted list of SimplisticFilm objects
     public List<SimplisticFilm> toListSimplisticFilm(){
         return this.stream().sorted(Comparator.comparing(fi -> fi.getFilmName()))
                             .collect(Collectors.toList());
         
     }
     
+    //Finds a Film with given filmID in self and returns it as a SimplisticFilm
     public List<SimplisticFilm> getDistinctSimplisticFilm(String filmID){
         return this.stream().filter(f -> f.filmID.equals(filmID))
                             .collect(Collectors.toList());
@@ -45,11 +47,13 @@ public class Films extends ArrayList<Film>{
             
         this.stream().flatMap(film -> film.directors.stream()
                     .filter(dir -> tmpList.stream()
-                            .noneMatch(di -> di.getID().equals(dir.getID())))
+                            //Make sure none of the directors we are about to add are duplicates
+                            .noneMatch(di -> di.getID().equals(dir.getID()))) 
+                     //Add those distinct directors to tmpList
                     .map(nDir -> tmpList.add(nDir)))
                     .collect(Collectors.toList());
 
-        tmpList.sort(Comparator.comparing(c -> c.getName()));
+        tmpList.sort(Comparator.comparing(c -> c.getName())); //Sort tmpList by name
 
         return tmpList;   
     }
@@ -59,6 +63,7 @@ public class Films extends ArrayList<Film>{
 
         this.stream().flatMap(film -> film.directors.stream()
                     .filter(dir -> tmpList.stream()
+                            //Make sure we are not getting duplicates and that we are only getting a director with the specified ID
                             .noneMatch(di -> di.getID().equals(dir.getID())) && dir.getID().equals(directorID))
                     .map(nDir -> tmpList.add(nDir)))
                     .collect(Collectors.toList());
