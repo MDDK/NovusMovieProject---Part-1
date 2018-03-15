@@ -5,6 +5,7 @@ import BusinessLayer.MovieBusinessLayer;
 import ClassLayer.*;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.context.ExternalContext;
@@ -71,9 +72,25 @@ public class Beans extends BaseBean implements Serializable{
         filmRatings = (filmRating == null) ? mbl.getDistinctRatingsFromFilms(tmp) : tmp.getDistinctFilmRating(filmID); 
         
         //display table of data once all values are selected
-        if(sFilms.size() == 1 && directors.size() == 1 && actors.size() == 1 && filmYears.size() == 1){
+        if(sFilms.size() >= 1 && directors.size() >= 1 && actors.size() >= 1 && filmYears.size() >= 1){
             isAllSelected = true;
-            this.populateFields(sFilms.get(0).filmID, directors.get(0).personID, actors.get(0).personID);
+            //this.populateFields(sFilms.get(0).filmID, directors.get(0).personID, actors.get(0).personID);
+            String[] filmIDs=new String[sFilms.size()];
+            for(int i=0; i<sFilms.size(); i++){
+                filmIDs[i]=sFilms.get(i).filmID;
+            }
+            
+            String[] directorIDs=new String[directors.size()];
+            for(int i=0; i<directors.size(); i++){
+                directorIDs[i]=directors.get(i).personID;
+            }
+            
+            String[] actorIDs=new String[actors.size()];
+            for(int i=0; i<actors.size(); i++){
+                actorIDs[i]=actors.get(i).personID;
+            }
+            
+            this.populateFields(filmIDs, directorIDs, actorIDs);
         }
     }
     
@@ -155,17 +172,53 @@ public class Beans extends BaseBean implements Serializable{
     //   Populating strings with selected film data
     //-------------------------------------------------
     private Film film;
+    private Film[] filmArray;
+    
     private Director director;
+    private Director[] directorArray;
+    
     private Actor actor;
+    private Actor[] actorArray;
     
     public void populateFields(String filmID, String directorID, String actorID){
-        this.film = mbl.getFilmFromSimplisticFilm(filmID);
+        this.film = mbl.getFilmFromSimplisticFilm(filmID);        
         this.director = mbl.getDirectorFromSimplisticFilm(film, directorID);
         this.actor = mbl.getActorFromSimplisticFilm(film, actorID);
+    }
+    public void populateFields(String[] filmIDs, String[] directorIDs, String[] actorIDs){
+       
+        this.filmArray=new Film[filmIDs.length];
+        for(int i=0; i<filmIDs.length; i++){
+            this.filmArray[i]=mbl.getFilmFromSimplisticFilm(filmIDs[i]);
+        }
+        
+        this.directorArray=new Director[directorIDs.length];
+        int dirL = directorIDs.length;
+        for(int i=0; i<directorIDs.length; i++){
+            Film testFilm = filmArray[0];
+            String aId = directorIDs[i];
+            int numOfDirsInFilm = filmArray[0].directors.size();
+            Director testDirector = filmArray[0].directors.get(0);
+            String testDirectorID = filmArray[0].directors.get(0).getID();
+            this.directorArray[i]=mbl.getDirectorFromSimplisticFilm(filmArray[0],filmArray[0].directors.get(0).getID());
+        }
+        
+        this.actorArray=new Actor[actorIDs.length];
+        for(int i=0; i<actorIDs.length; i++){
+            
+            this.actorArray[i]=mbl.getActorFromSimplisticFilm(filmArray[0], filmArray[0].actors.get(0).getID());
+        }
+        
+        //this.film = mbl.getFilmFromSimplisticFilm(filmIDs[0]);        
+       //this.director = mbl.getDirectorFromSimplisticFilm(film, directorIDs[0]);
+        //this.actor = mbl.getActorFromSimplisticFilm(film, actorIDs[0]);
+        
+        
     }
     
     //JSF read access to fields
     public Film getFilm(){return film;}
+    public Film[] getFilmArray(){return filmArray;}
     public Director getDirector(){return director;}
     public Actor getActor(){return actor;}
     public String getFilmImdbLink() {return String.format(AppVariables.WebProperties.imdbFilmURL, film.filmID);}

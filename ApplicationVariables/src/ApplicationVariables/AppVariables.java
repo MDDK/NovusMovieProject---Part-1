@@ -15,8 +15,8 @@ public class AppVariables {
         
     public static class CSV{    
         
-        public static String FILE_PATH = "C:\\TestData.csv";
-        public static String EXTENDED_FILE_PATH = "C:\\ExtendedTestData.csv";
+        public static String FILE_PATH = "C:\\Users\\Marek\\Documents\\NetBeansProjects\\NovusMovieProject - Part 1\\Data\\TestData.csv";
+        public static String EXTENDED_FILE_PATH = "C:\\Users\\Marek\\Documents\\NetBeansProjects\\NovusMovieProject - Part 1\\Data\\ExtendedTestData.csv";
     } 
       
     public static class WebProperties{

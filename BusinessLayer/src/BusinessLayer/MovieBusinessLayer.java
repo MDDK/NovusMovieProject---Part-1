@@ -66,6 +66,7 @@ public class MovieBusinessLayer {
     }
     
     public Director getDirectorFromSimplisticFilm(Film sFilm, String directorID){
+        
         return sFilm.getDirectorList()
                         .stream()
                         .filter(d -> d.getID().equals(directorID))

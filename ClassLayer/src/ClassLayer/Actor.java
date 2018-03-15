@@ -1,5 +1,5 @@
 package ClassLayer;
-
+import ApplicationVariables.AppVariables;
 
 public class Actor extends Person{
     
@@ -7,4 +7,9 @@ public class Actor extends Person{
         super (actorID, actorName);
     }
     
+    public String getActorImdbLink() {return String.format(AppVariables.WebProperties.imdbProfileURL, personID);}
+
+    
 }
+
+

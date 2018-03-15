@@ -18,46 +18,84 @@
 
                 </h:selectOneMenu>
                 
+                
+       <!--disabled ="true"-->
+                </p>
+       <!--rendered="bean.isAllSelected"-->
+        </h:form>         
+        
+        <!--//DIRECTOR DROPDOWN//-->
+        
+        <h:form id="form2">
+                
+                
+                <p>Director:<h:selectOneMenu style="width:230px;" value="#{bean.selectedDirector}" 
+                              onchange="submit()" valueChangeListener="#{bean.directorValueChanged}">
+                    <f:selectItems value="#{bean.directors}" />                    
+
+                </h:selectOneMenu>
+                
+                
+       <!--disabled ="true"-->
+                </p>
+       <!--rendered="bean.isAllSelected"-->
+        </h:form>     
+        
+        <!--//DIRECTOR DROPDOWN END//-->
+        
+        <!--//ACTOR DROPDOWN//-->
+        
+        <h:form id="form3">
+                
+                
+                <p>Actor:<h:selectOneMenu style="width:230px;" value="#{bean.selectedActor}" 
+                              onchange="submit()" valueChangeListener="#{bean.actorValueChanged}">
+                    <f:selectItems value="#{bean.actors}" />                    
+
+                </h:selectOneMenu>
+                
                 <h:commandButton value="Reset" class="button" action="#{bean.reset}" />
        <!--disabled ="true"-->
                 </p>
        <!--rendered="bean.isAllSelected"-->
-        </h:form> 
+        </h:form>     
+        
+        <!--//ACTOR DROPDOWN END//-->
         
         <!--bean.isSubmitted-->
-        <h:dataTable rendered="#{bean.isAllSelected}" class="tftable" value="Film" var="item" border="1">
+        <h:dataTable rendered="#{bean.isAllSelected}" class="tftable" value="#{bean.filmArray}" var="film" border="1">
             <f:facet name="header">Selected Film</f:facet>
             <h:column>
               <f:facet name="header">Film ID</f:facet>
-              #{bean.film.filmID}
+              #{film.filmID}              
             </h:column>
             <h:column>
               <f:facet name="header">Film Name</f:facet>
-                <h:outputLink value="#{bean.filmImdbLink}"><h:outputText value="#{bean.film.filmName}" /></h:outputLink>
+                <h:outputLink value="{bean.filmImdbLink}"><h:outputText value="#{film.filmName}" /></h:outputLink>
             </h:column>
             <h:column>
               <f:facet name="header">Film Year</f:facet>
-              #{bean.film.filmYear}
+              #{film.filmYear}
             </h:column>
             <h:column>
               <f:facet name="header">Imdb Rating</f:facet>
-              #{bean.film.filmRating}
+              #{film.filmRating}
             </h:column>
             <h:column>
               <f:facet name="header">Director ID</f:facet>
-              #{bean.director.ID}
+              #{film.directorList.get(0).ID}
             </h:column>
             <h:column>
               <f:facet name="header">Director Name</f:facet>
-                <h:outputLink value="#{bean.directorImdbLink}"><h:outputText value="#{bean.director.name}" /></h:outputLink>
+                <h:outputLink value="#{film.directorList.get(0).directorImdbLink}"><h:outputText value="#{film.directorList.get(0).name}" /></h:outputLink>
             </h:column>
             <h:column>
               <f:facet name="header">Actor ID</f:facet>
-              #{bean.actor.ID}
+              #{film.actorList.get(0).ID}
             </h:column>
             <h:column>
               <f:facet name="header">Actor Name</f:facet>
-                <h:outputLink value="#{bean.actorImdbLink}"><h:outputText value="#{bean.actor.name}" /></h:outputLink>
+                <h:outputLink value="#{film.actorList.get(0).actorImdbLink}"><h:outputText value="#{film.actorList.get(0).name}" /></h:outputLink>
             </h:column>
         </h:dataTable>
     </h:body>

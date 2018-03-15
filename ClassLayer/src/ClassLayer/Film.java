@@ -40,6 +40,7 @@ public class Film extends SimplisticFilm {
     public String getFilmRating(){return imdbRating;}
     public String getFilmYear(){return filmYear;}
     public List<Director> getDirectorList(){return directors;}
+
     public List<Actor> getActorList(){return actors;}
     
     
@@ -47,4 +48,5 @@ public class Film extends SimplisticFilm {
     public void setFilmYear(String filmYear){this.filmYear = filmYear;}
     public void setDirectorList(List<Director> directors){this.directors = directors;}
     public void setActorList(List<Actor> actors){this.actors = actors;}
+
 }

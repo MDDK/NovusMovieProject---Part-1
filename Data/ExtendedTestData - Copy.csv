@@ -1,8 +1,8 @@
 Film ID, Film Name," 						IMDB Rating"," 	Director ID"," 	Director"," 			Actor ID", Actor, Year
-145487, Spider-Man," 						 7.3"," 			0000600"," 		Sam Raimi","			0001497", Tobey Maguire,2002
-2975591, Batman v Superman: Dawn of Justice Alt,6.7," 			0811583"," 		Zack Snyder","		0147147", Henry Cavill,2016
-2975590, Batman v Superman: Dawn of Justice,6.7," 			0811583"," 		Zack Snyder",255,Ben Affleck,2016
-287978, Daredevil,"							 5.3"," 			0425756"," 		Mark Steven Johnson",255,Ben Affleck,2003
+145487, Spider-Man," 						 7.3"," 			0000600"," 		Sam Raimi"," 			0001497", Tobey Maguire,2002
+2975590, Batman v Superman: Dawn of Justice,6.7," 			0811583"," 		Zack Snyder"," 		0147147", Henry Cavill,2016
+2975590, Batman v Superman: Dawn of Justice,6.7," 			0811583"," 		Zack Snyder",255, Ben Affleck,2016
+287978, Daredevil,"							 5.3"," 			0425756"," 		Mark Steven Johnson",255, Ben Affleck,2003
 3385516, X-Men Apocalypse," 					 7.1","			0001741"," 		Bryan Singer","		0564215", James McAvoy,2016
 468569, Batman: The Dark Knight," 			 9.0"," 			0634240","		Christopher Nolan","	0000288",Christian Bale,2008
 1345836, Batman: The Dark Knight Rises,"		 8.5","			0634240","		Christopher Nolan","	0000288",Christian Bale,2012
